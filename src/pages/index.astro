@@ -1,6 +1,217 @@
 ---
 import Base from '../layouts/Base.astro';
+import BookingButton from '../components/BookingButton.astro';
+import { getCollection } from 'astro:content';
+
+const uslugi = await getCollection('uslugi');
+const uslugiSorted = uslugi.sort((a, b) => a.data.order - b.data.order);
 ---
-<Base title="FIZJOMAT – Fizjoterapia ortopedyczna Gliwice" description="Centrum profesjonalnej fizjoterapii i rehabilitacji ortopedycznej w Gliwicach. Umów wizytę online.">
-  <p>Strona w budowie.</p>
+<Base
+  title="FIZJOMAT – Fizjoterapia ortopedyczna Gliwice"
+  description="Centrum profesjonalnej fizjoterapii i rehabilitacji ortopedycznej w Gliwicach. Umów wizytę online z Michałem Klapuchem lub Szymonem Mączko."
+>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h1>Odzyskaj sprawność</h1>
+        <p class="hero-tagline">W <strong>FIZJOMAT</strong> pomagamy odzyskać pełną sprawność i cieszyć się życiem bez bólu.</p>
+        <div class="hero-ctas">
+          <BookingButton
+            href="https://booksy.com/pl-pl/310393_fizjomat-michal-klapuch_fizjoterapia"
+            label="Umów wizytę – Michał"
+          />
+          <BookingButton
+            href="https://booksy.com/pl-pl/337615_fizjomat-szymon-maczko_fizjoterapia"
+            label="Umów wizytę – Szymon"
+            variant="outline"
+          />
+        </div>
+      </div>
+      <div class="hero-logo">
+        <img
+          src="/images/Fizjomat-logo-2025_RGB_poziom-kolor.webp"
+          alt="FIZJOMAT fizjoterapia ortopedyczna"
+          width="400"
+          height="120"
+          fetchpriority="high"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- O NAS -->
+  <section id="o-nas">
+    <div class="container">
+      <h2>Kim jesteśmy?</h2>
+      <p>FIZJOMAT to centrum profesjonalnej fizjoterapii i rehabilitacji ortopedycznej w Gliwicach. Specjalizujemy się w terapii bólu narządu ruchu, rehabilitacji sportowej i diagnostyce funkcjonalnej.</p>
+      <p>Naszym celem jest przywrócenie pełnej sprawności pacjentom i poprawa jakości ich życia. Każdą terapię opieramy na dokładnej diagnozie i indywidualnym planie leczenia.</p>
+    </div>
+  </section>
+
+  <!-- USŁUGI -->
+  <section id="uslugi">
+    <div class="container">
+      <h2>Oferta</h2>
+      <p class="section-lead">Specjalizujemy się w sześciu obszarach fizjoterapii i rehabilitacji.</p>
+      <ul class="services-grid">
+        {uslugiSorted.map((usluga) => (
+          <li class="service-card">
+            <h3><a href={`/uslugi/${usluga.id}`}>{usluga.data.title}</a></h3>
+            <p>{usluga.data.excerpt}</p>
+            <a href={`/uslugi/${usluga.id}`} class="card-link">Dowiedz się więcej →</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ZESPÓŁ -->
+  <section id="zespol">
+    <div class="container">
+      <h2>Nasz zespół</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <h3>Michał Klapuch</h3>
+          <p>Magister fizjoterapii i wychowania fizycznego AWF Katowice. Specjalizuje się w terapii bólu narządu ruchu, rehabilitacji sportowej, kinezyterapii i terapii manualnej. Stosuje diagnostykę funkcjonalną i USG. Aktywny triathlonista.</p>
+          <BookingButton
+            href="https://booksy.com/pl-pl/310393_fizjomat-michal-klapuch_fizjoterapia"
+            label="Umów wizytę"
+          />
+        </div>
+        <div class="team-card">
+          <h3>Szymon Mączko</h3>
+          <p>Absolwent fizjoterapii AWF Katowice. Pracuje z pacjentami z dysfunkcjami narządu ruchu i osobami chcącymi bezpiecznie uprawiać aktywność fizyczną. Stale poszerza wiedzę z zakresu diagnostyki funkcjonalnej i rehabilitacji ortopedycznej.</p>
+          <BookingButton
+            href="https://booksy.com/pl-pl/337615_fizjomat-szymon-maczko_fizjoterapia"
+            label="Umów wizytę"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="kontakt">
+    <div class="container kontakt-inner">
+      <div class="kontakt-info">
+        <h2>Skontaktuj się</h2>
+        <address>
+          <p><strong>Adres:</strong><br />ul. Sowińskiego 72<br />44-121 Gliwice</p>
+          <p><strong>Telefon:</strong><br /><a href="tel:+48660681468">+48 660 681 468</a></p>
+          <p><strong>E-mail:</strong><br /><a href="mailto:fizjomat@gmail.com">fizjomat@gmail.com</a></p>
+        </address>
+      </div>
+      <div class="kontakt-form">
+        <h2>Wyślij wiadomość</h2>
+        <form action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="REPLACE_WITH_WEB3FORMS_KEY" />
+          <input type="hidden" name="subject" value="Nowa wiadomość z fizjomat.com" />
+          <input type="hidden" name="redirect" value="https://fizjomat.com/?sent=1" />
+          <div class="form-group">
+            <label for="name">Imię i nazwisko</label>
+            <input type="text" id="name" name="name" required autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="phone">Telefon</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" />
+          </div>
+          <div class="form-group">
+            <label for="message">Wiadomość</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Wyślij</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
 </Base>
+
+<style>
+  /* HERO */
+  .hero {
+    background: var(--color-primary);
+    color: #fff;
+    padding: 5rem 1.5rem;
+  }
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+  .hero-text { flex: 1; min-width: 280px; }
+  .hero h1 { color: #fff; margin-bottom: 1rem; }
+  .hero-tagline { font-size: 1.2rem; color: #c5d0de; margin-bottom: 2rem; }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .hero-logo { flex-shrink: 0; }
+  .hero-logo img { filter: brightness(0) invert(1); opacity: 0.9; }
+  @media (max-width: 640px) { .hero-logo { display: none; } }
+
+  /* SERVICES */
+  .section-lead { color: var(--color-text-muted); margin-bottom: 2rem; }
+  .services-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .service-card {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .service-card h3 a { color: var(--color-primary); }
+  .service-card h3 a:hover { text-decoration: underline; }
+  .service-card p { color: var(--color-text-muted); font-size: 0.95rem; flex: 1; }
+  .card-link { font-weight: 600; font-size: 0.9rem; color: var(--color-accent); }
+
+  /* TEAM */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  .team-card {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* KONTAKT */
+  .kontakt-inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+  }
+  .kontakt-info address { font-style: normal; display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+  .form-group label { font-weight: 500; font-size: 0.9rem; }
+  .form-group input,
+  .form-group textarea {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 0.6rem 0.85rem;
+    font-size: 1rem;
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-text);
+    width: 100%;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: 2px solid var(--color-accent);
+    border-color: var(--color-accent);
+  }
+</style>
