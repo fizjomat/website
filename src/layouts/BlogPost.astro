@@ -12,7 +12,7 @@ interface Props {
 const { title, description, date, author, tags } = Astro.props;
 const formattedDate = date.toLocaleDateString('pl-PL', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
-<Base title={`${title} – Blog FIZJOMAT`} description={description}>
+<Base title={`${title} – Blog FIZJOMAT`} description={description} ogType="article">
   <article class="blog-post">
     <div class="container">
       <nav class="breadcrumb" aria-label="Nawigacja okruszkowa">

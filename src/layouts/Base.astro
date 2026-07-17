@@ -8,14 +8,17 @@ interface Props {
   title: string;
   description: string;
   ogImage?: string;
+  ogType?: string;
 }
 
-const { title, description, ogImage = '/images/Fizjomat-logo-2025_RGB_poziom-kolor.webp' } = Astro.props;
+const { title, description, ogImage = '/images/Fizjomat-logo-2025_RGB_poziom-kolor.webp', ogType = 'website' } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 <!DOCTYPE html>
 <html lang="pl">
   <head>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
@@ -26,7 +29,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:image" content={new URL(ogImage, Astro.site)} />
     <meta property="og:locale" content="pl_PL" />
 
