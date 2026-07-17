@@ -1,0 +1,43 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const uslugi = await getCollection('uslugi');
+  return uslugi.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+<Base title={`${entry.data.title} – FIZJOMAT Gliwice`} description={entry.data.description}>
+  <article class="service-page">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Nawigacja okruszkowa">
+        <a href="/">Strona główna</a>
+        <span aria-hidden="true">›</span>
+        <a href="/#uslugi">Usługi</a>
+        <span aria-hidden="true">›</span>
+        <span>{entry.data.title}</span>
+      </nav>
+      <h1>{entry.data.title}</h1>
+      <div class="prose">
+        <Content />
+      </div>
+      <a href="/#uslugi" class="btn btn-outline back-link">← Wszystkie usługi</a>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .service-page { padding: var(--section-padding); }
+  .breadcrumb { display: flex; gap: 0.5rem; align-items: center; font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .breadcrumb a { color: var(--color-text-muted); }
+  .breadcrumb a:hover { color: var(--color-primary); }
+  .prose { max-width: 70ch; margin: 1.5rem 0 2rem; }
+  .prose p { margin-bottom: 1rem; }
+  .back-link { margin-top: 1rem; }
+</style>
