@@ -1,0 +1,56 @@
+---
+---
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo-link" aria-label="FIZJOMAT – strona główna">
+      <img
+        src="/images/Fizjomat-logo-2025_RGB_poziom-kolor.webp"
+        alt="FIZJOMAT fizjoterapia ortopedyczna"
+        width="200"
+        height="60"
+      />
+    </a>
+    <nav aria-label="Główna nawigacja">
+      <ul class="nav-list">
+        <li><a href="/#o-nas">O nas</a></li>
+        <li><a href="/#uslugi">Usługi</a></li>
+        <li><a href="/#zespol">Zespół</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    padding: 0.75rem 0;
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .logo-link { display: flex; align-items: center; }
+  .nav-list {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .nav-list a {
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+  .nav-list a:hover { text-decoration: underline; }
+  @media (max-width: 640px) {
+    .nav-list { gap: 1rem; font-size: 0.85rem; }
+  }
+</style>

@@ -1,0 +1,68 @@
+---
+---
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img
+        src="/images/Fizjomat-logo-2025_RGB_poziom-kolor.webp"
+        alt="FIZJOMAT"
+        width="160"
+        height="48"
+      />
+      <p>Centrum profesjonalnej fizjoterapii i rehabilitacji ortopedycznej.</p>
+    </div>
+    <div class="footer-contact">
+      <h3>Kontakt</h3>
+      <address>
+        <p>ul. Sowińskiego 72<br />44-121 Gliwice</p>
+        <p><a href="tel:+48660681468">+48 660 681 468</a></p>
+        <p><a href="mailto:fizjomat@gmail.com">fizjomat@gmail.com</a></p>
+      </address>
+    </div>
+    <div class="footer-nav">
+      <h3>Menu</h3>
+      <ul>
+        <li><a href="/#o-nas">O nas</a></li>
+        <li><a href="/#uslugi">Usługi</a></li>
+        <li><a href="/#zespol">Zespół</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; {new Date().getFullYear()} FIZJOMAT. Wszelkie prawa zastrzeżone.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-primary);
+    color: #e8edf4;
+    padding: 3rem 0 0;
+  }
+  .footer-inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding-bottom: 2rem;
+  }
+  .footer-brand p { color: #c5d0de; font-size: 0.9rem; margin-top: 0.75rem; }
+  .footer-contact h3, .footer-nav h3 {
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+  .footer-contact address { font-style: normal; }
+  .footer-contact a, .footer-nav a { color: #c5d0de; }
+  .footer-contact a:hover, .footer-nav a:hover { color: #fff; }
+  .footer-nav ul { list-style: none; }
+  .footer-nav li { margin-bottom: 0.4rem; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.85rem;
+    color: #8a9bb0;
+  }
+</style>
