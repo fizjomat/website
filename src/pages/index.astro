@@ -119,6 +119,17 @@ const uslugiSorted = uslugi.sort((a, b) => a.data.order - b.data.order);
           <div class="team-card-body">
             <h3>Michał Klapuch</h3>
             <p>Magister fizjoterapii i wychowania fizycznego AWF Katowice. Specjalizuje się w terapii bólu narządu ruchu, rehabilitacji sportowej, kinezyterapii i terapii manualnej. Stosuje diagnostykę funkcjonalną i USG. Aktywny triathlonista.</p>
+            <details class="bio-details">
+              <summary>Dowiedz się więcej</summary>
+              <div class="bio-full">
+                <p>Nazywam się Michał Klapuch. Jestem magistrem fizjoterapii oraz magistrem wychowania fizycznego, absolwentem Akademii Wychowania Fizycznego im. Jerzego Kukuczki w Katowicach. Na co dzień prowadzę gabinet FIZJOMAT w Gliwicach, gdzie pomagam pacjentom wrócić do sprawności, pozbyć się bólu oraz bezpiecznie wrócić do aktywności fizycznej.</p>
+                <p>W swojej pracy łączę wiedzę z zakresu fizjoterapii, treningu medycznego oraz nauk o sporcie. Dzięki temu nie skupiam się wyłącznie na leczeniu objawów, ale przede wszystkim na odnalezieniu przyczyny problemu i przywróceniu prawidłowych wzorców ruchowych.</p>
+                <p>Specjalizuję się w terapii dolegliwości bólowych narządu ruchu, rehabilitacji sportowej, kinezyterapii oraz terapii manualnej. W diagnostyce wykorzystuję badanie funkcjonalne oraz ultrasonografię (USG), co pozwala precyzyjnie ocenić stan tkanek i zaplanować skuteczną terapię.</p>
+                <p>Nieustannie rozwijam swoje kompetencje, uczestnicząc w licznych szkoleniach z zakresu fizjoterapii, terapii manualnej, rehabilitacji sportowej oraz diagnostyki ultrasonograficznej.</p>
+                <p>Sport jest nie tylko moją pracą, ale również pasją. Jestem aktywnym triathlonistą, biegaczem i pływakiem. Posiadam także uprawnienia instruktora pływania, tenisa oraz odnowy biologicznej. Dzięki własnym doświadczeniom sportowym doskonale rozumiem potrzeby osób aktywnych fizycznie, sportowców amatorów i zawodników wracających do treningu po kontuzjach.</p>
+                <p>Wierzę, że skuteczna fizjoterapia to połączenie trafnej diagnostyki, indywidualnie dobranej terapii oraz świadomego ruchu. Moim celem jest nie tylko redukcja bólu, ale przede wszystkim trwały powrót do sprawności i aktywności, która daje satysfakcję każdego dnia.</p>
+              </div>
+            </details>
             <BookingButton
               href="https://booksy.com/pl-pl/310393_fizjomat-michal-klapuch_fizjoterapia_12795_gliwice"
               label="Umów wizytę"
@@ -132,6 +143,14 @@ const uslugiSorted = uslugi.sort((a, b) => a.data.order - b.data.order);
           <div class="team-card-body">
             <h3>Szymon Mączko</h3>
             <p>Absolwent fizjoterapii AWF Katowice. Pracuje z pacjentami z dysfunkcjami narządu ruchu i osobami chcącymi bezpiecznie uprawiać aktywność fizyczną. Stale poszerza wiedzę z zakresu diagnostyki funkcjonalnej i rehabilitacji ortopedycznej.</p>
+            <details class="bio-details">
+              <summary>Dowiedz się więcej</summary>
+              <div class="bio-full">
+                <p>Absolwent Akademii Wychowania Fizycznego w Katowicach na kierunku fizjoterapia. Pracuje z osobami zmagającymi się z dolegliwościami w obrębie narządu ruchu oraz ze wszystkimi, którzy chcą podjąć aktywność fizyczną w sposób najlepiej dopasowany do swoich potrzeb.</p>
+                <p>Stale poszerza i aktualizuje swoją wiedzę, uczestnicząc w licznych kursach z zakresu diagnostyki funkcjonalnej, fizjoterapii ortopedycznej i sportowej oraz rehabilitacji przed/pooperacyjnej (m.in. rekonstrukcji więzadeł, plastyki stawów, szycia łąkotek).</p>
+                <p>W codziennej praktyce dąży do przywrócenia maksymalnej możliwej sprawności i komfortu życia pacjenta. Dokłada wszelkich starań, aby każda wizyta przebiegała w miłej atmosferze.</p>
+              </div>
+            </details>
             <BookingButton
               href="https://booksy.com/pl-pl/337615_szymon-maczko-fizjoterapia-i-trening_fizjoterapia_12795_gliwice"
               label="Umów wizytę"
@@ -370,6 +389,19 @@ const uslugiSorted = uslugi.sort((a, b) => a.data.order - b.data.order);
     gap: 0.75rem;
     flex: 1;
   }
+  .bio-details summary {
+    cursor: pointer;
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+    list-style: none;
+    user-select: none;
+  }
+  .bio-details summary::-webkit-details-marker { display: none; }
+  .bio-details summary::after { content: ' ↓'; }
+  .bio-details[open] summary::after { content: ' ↑'; }
+  .bio-details[open] summary { margin-bottom: 0.5rem; }
+  .bio-full p { color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 0.75rem; }
 
   /* BOTTOM PHOTOS */
   .photos-section { padding: 0; }

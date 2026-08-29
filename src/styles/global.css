@@ -55,6 +55,10 @@ section {
   padding: var(--section-padding);
 }
 
+section[id] {
+  scroll-margin-top: 80px;
+}
+
 section:nth-child(even) {
   background: var(--color-bg-alt);
 }
