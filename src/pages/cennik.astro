@@ -1,0 +1,205 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Cennik – FIZJOMAT Gliwice"
+  description="Cennik usług fizjoterapeutycznych FIZJOMAT Gliwice. Konsultacja od 180 zł, analiza biegu 300 zł, pakiety rehabilitacyjne i treningowe."
+>
+  <article class="cennik-page">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Nawigacja okruszkowa">
+        <a href="/">Strona główna</a>
+        <span aria-hidden="true">›</span>
+        <span>Cennik</span>
+      </nav>
+
+      <h1>Cennik</h1>
+      <p class="cennik-lead">Ceny obowiązujące w FIZJOMAT. Wizyty niestandardowe wyceniane są indywidualnie. Nie współpracujemy z NFZ — wyłącznie wizyty komercyjne.</p>
+
+      <div class="cennik-grid">
+
+        <!-- WIZYTY POJEDYNCZE -->
+        <section class="price-section">
+          <h2>Wizyty</h2>
+          <ul class="price-list">
+            <li>
+              <span class="price-name">Konsultacja fizjoterapeutyczna <em>1 h</em></span>
+              <span class="price-value">190 zł</span>
+            </li>
+            <li>
+              <span class="price-name">Wizyta rehabilitacyjna <em>do 55 min</em></span>
+              <span class="price-value">180 zł</span>
+            </li>
+            <li>
+              <span class="price-name">Trening medyczny <em>1 na 1</em></span>
+              <span class="price-value">170 zł</span>
+            </li>
+            <li>
+              <span class="price-name">Trening medyczny <em>2 osoby</em></span>
+              <span class="price-value">200 zł</span>
+            </li>
+            <li>
+              <span class="price-name">Analiza biegu</span>
+              <span class="price-value">300 zł</span>
+            </li>
+            <li>
+              <span class="price-name">Masaż pneumatyczny Normatec <em>45 min</em></span>
+              <span class="price-value">90 zł</span>
+            </li>
+            <li>
+              <span class="price-name">Kinesiotaping <em>w wizycie bezpłatny</em></span>
+              <span class="price-value">50 zł</span>
+            </li>
+          </ul>
+          <p class="price-note">* Cena każdej wizyty niestandardowej ustalana jest indywidualnie z pacjentem.</p>
+          <p class="price-note">** Zajęcia prowadzone jeden na jeden z fizjoterapeutą/trenerem.</p>
+        </section>
+
+        <!-- PAKIETY -->
+        <section class="price-section">
+          <h2>Pakiety</h2>
+
+          <h3>Rehabilitacja</h3>
+          <ul class="price-list">
+            <li>
+              <span class="price-name">10 wizyt rehabilitacyjnych</span>
+              <span class="price-value">1650 zł</span>
+            </li>
+            <li>
+              <span class="price-name">5 wizyt rehabilitacyjnych</span>
+              <span class="price-value">850 zł</span>
+            </li>
+          </ul>
+
+          <h3>Trening medyczny <span class="pkg-sub">1 na 1</span></h3>
+          <ul class="price-list">
+            <li>
+              <span class="price-name">10 sesji treningowych</span>
+              <span class="price-value">1400 zł</span>
+            </li>
+            <li>
+              <span class="price-name">5 sesji treningowych</span>
+              <span class="price-value">750 zł</span>
+            </li>
+          </ul>
+
+          <h3>Trening medyczny <span class="pkg-sub">2 na 1</span></h3>
+          <ul class="price-list">
+            <li>
+              <span class="price-name">10 sesji treningowych</span>
+              <span class="price-value">1600 zł</span>
+            </li>
+            <li>
+              <span class="price-name">5 sesji treningowych</span>
+              <span class="price-value">1800 zł</span>
+            </li>
+          </ul>
+        </section>
+
+      </div>
+
+      <div class="cennik-cta">
+        <a href="/#kontakt" class="btn btn-primary">Umów wizytę</a>
+        <a href="/cennik.pdf" class="btn btn-outline" target="_blank" rel="noopener">Pobierz PDF</a>
+      </div>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .cennik-page { padding: var(--section-padding); }
+
+  .breadcrumb {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--color-text-muted); }
+  .breadcrumb a:hover { color: var(--color-primary); }
+
+  h1 { margin-bottom: 0.75rem; }
+  .cennik-lead { color: var(--color-text-muted); max-width: 65ch; margin-bottom: 3rem; }
+
+  .cennik-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  @media (max-width: 700px) {
+    .cennik-grid { grid-template-columns: 1fr; }
+  }
+
+  .price-section h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-primary);
+  }
+  .price-section h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 1.5rem 0 0.75rem;
+  }
+  .pkg-sub {
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 0.95rem;
+  }
+
+  .price-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .price-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .price-list li:first-child { border-top: 1px solid var(--color-border); }
+
+  .price-name {
+    font-size: 0.95rem;
+    color: var(--color-text);
+  }
+  .price-name em {
+    display: block;
+    font-style: normal;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-top: 0.1rem;
+  }
+  .price-value {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-primary);
+    white-space: nowrap;
+  }
+
+  .price-note {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    margin-top: 1rem;
+    margin-bottom: 0;
+  }
+
+  .cennik-cta {
+    margin-top: 3rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+</style>
