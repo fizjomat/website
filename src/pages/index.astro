@@ -473,16 +473,46 @@ const uslugiSorted = uslugi.sort((a, b) => a.data.order - b.data.order);
 <script>
   const track = document.getElementById('galleryTrack') as HTMLElement;
   const dots = document.querySelectorAll('.dot');
-  const total = dots.length;
-  let current = 0;
+  const N = dots.length;
 
-  function goTo(index: number) {
-    current = index;
-    track.style.transform = `translateX(-${current * 100}%)`;
-    dots.forEach((d, i) => d.classList.toggle('active', i === current));
-  }
+  // Prepend clone of last slide, append clone of first slide
+  // Track layout: [lastClone, slide0 … slideN-1, firstClone]
+  const origSlides = Array.from(track.children);
+  track.prepend(origSlides[N - 1].cloneNode(true));
+  track.appendChild(origSlides[0].cloneNode(true));
 
-  dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+  let pos = 1; // real slides occupy positions 1..N
 
-  setInterval(() => goTo((current + 1) % total), 4000);
+  const moveTo = (p: number, animate: boolean) => {
+    track.style.transition = animate ? 'transform 0.6s ease' : 'none';
+    track.style.transform = `translateX(-${p * 100}%)`;
+    pos = p;
+  };
+
+  // Start at real slide 0 without animation
+  moveTo(1, false);
+  track.getBoundingClientRect(); // force reflow so initial position commits
+
+  const updateDots = (realIdx: number) => {
+    dots.forEach((d, i) => d.classList.toggle('active', i === realIdx));
+  };
+
+  // After transition ends, silently jump when on a clone
+  track.addEventListener('transitionend', () => {
+    if (pos === N + 1) moveTo(1, false);      // firstClone → real slide 0
+    else if (pos === 0) moveTo(N, false);      // lastClone  → real slide N-1
+  });
+
+  const advance = () => {
+    const next = pos + 1;
+    moveTo(next, true);
+    updateDots(next > N ? 0 : next - 1);
+  };
+
+  dots.forEach((dot, i) => dot.addEventListener('click', () => {
+    moveTo(i + 1, true);
+    updateDots(i);
+  }));
+
+  setInterval(advance, 4000);
 </script>
