@@ -237,7 +237,27 @@ const uslugiSorted = uslugi.sort((a, b) => a.data.order - b.data.order);
   .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 0.5rem; }
 
   /* SERVICES */
-  .section-lead { color: var(--color-text-muted); margin-bottom: 2rem; }
+  #uslugi {
+    position: relative;
+    background-image: url('/images/foto1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: var(--section-padding);
+  }
+  #uslugi::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(18, 38, 65, 0.72);
+    pointer-events: none;
+  }
+  #uslugi > .container {
+    position: relative;
+    z-index: 1;
+  }
+  #uslugi h2 { color: #fff; }
+  .section-lead { color: rgba(255,255,255,0.8); margin-bottom: 2rem; }
   .services-grid {
     list-style: none;
     display: grid;
