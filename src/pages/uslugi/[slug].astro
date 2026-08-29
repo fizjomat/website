@@ -23,32 +23,111 @@ const { Content } = await render(entry);
         <span aria-hidden="true">›</span>
         <span>{entry.data.title}</span>
       </nav>
-      <h1>{entry.data.title}</h1>
-      {entry.data.image && (
-        <img class="service-hero-img" src={entry.data.image} alt={entry.data.title} width="400" height="350" loading="eager" />
-      )}
-      <div class="prose">
-        <Content />
+
+      <div class={`service-layout${entry.data.image ? ' has-photo' : ''}`}>
+        <div class="service-content">
+          <h1>{entry.data.title}</h1>
+          <div class="prose">
+            <Content />
+          </div>
+          <a href="/#uslugi" class="btn btn-outline back-link">← Wszystkie usługi</a>
+        </div>
+
+        {entry.data.image && (
+          <div class="service-photo-wrap">
+            <img
+              class="service-parallax-img"
+              id="serviceParallaxImg"
+              src={entry.data.image}
+              alt={entry.data.title}
+              width="560"
+              height="600"
+              loading="eager"
+            />
+          </div>
+        )}
       </div>
-      <a href="/#uslugi" class="btn btn-outline back-link">← Wszystkie usługi</a>
     </div>
   </article>
 </Base>
 
 <style>
   .service-page { padding: var(--section-padding); }
-  .breadcrumb { display: flex; gap: 0.5rem; align-items: center; font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 1.5rem; flex-wrap: wrap; }
+
+  .breadcrumb {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
   .breadcrumb a { color: var(--color-text-muted); }
   .breadcrumb a:hover { color: var(--color-primary); }
-  .prose { max-width: 70ch; margin: 1.5rem 0 2rem; }
-  .prose p { margin-bottom: 1rem; }
-  .service-hero-img {
-    width: 100%;
-    max-width: 560px;
-    height: auto;
-    border-radius: var(--radius);
-    margin: 1.5rem 0;
-    display: block;
+
+  /* Two-column layout */
+  .service-layout.has-photo {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 4rem;
+    align-items: start;
   }
-  .back-link { margin-top: 1rem; }
+
+  /* Content column */
+  .service-content h1 { margin-bottom: 1.5rem; }
+  .prose { max-width: 65ch; }
+  .prose p { margin-bottom: 1rem; }
+  .prose ul { margin: 0.5rem 0 1rem 1.25rem; }
+  .prose li { margin-bottom: 0.35rem; }
+  .prose strong { color: var(--color-primary); }
+  .back-link { margin-top: 2rem; display: inline-block; }
+
+  /* Photo column — sticky with parallax */
+  .service-photo-wrap {
+    position: sticky;
+    top: 100px;
+    overflow: hidden;
+    border-radius: var(--radius);
+    height: 520px;
+    box-shadow: 0 8px 32px rgba(30, 58, 95, 0.15);
+  }
+  .service-parallax-img {
+    width: 100%;
+    height: 140%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    will-change: transform;
+  }
+
+  /* Mobile: single column, photo on top */
+  @media (max-width: 800px) {
+    .service-layout.has-photo {
+      grid-template-columns: 1fr;
+    }
+    .service-photo-wrap {
+      position: static;
+      height: 280px;
+      order: -1;
+      box-shadow: none;
+    }
+    .service-parallax-img {
+      height: 100%;
+    }
+  }
 </style>
+
+<script>
+  const wrap = document.querySelector('.service-photo-wrap') as HTMLElement | null;
+  const img = document.getElementById('serviceParallaxImg') as HTMLImageElement | null;
+  if (wrap && img && window.innerWidth > 800) {
+    const onScroll = () => {
+      const rect = wrap.getBoundingClientRect();
+      const center = rect.top + rect.height / 2 - window.innerHeight / 2;
+      img.style.transform = `translateY(${center * 0.18}px)`;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+</script>
