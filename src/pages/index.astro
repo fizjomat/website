@@ -58,13 +58,13 @@ const uslugiSorted = uslugi.sort((a, b) => a.data.order - b.data.order);
           <img src="/images/poczekalnia-2.jpg" alt="Poczekalnia FIZJOMAT" width="1200" height="550" loading="lazy" />
         </div>
         <div class="gallery-slide">
-          <img src="/images/IMG_4557JPEG.jpeg" alt="Gabinet FIZJOMAT" width="1200" height="1600" loading="lazy" />
+          <img src="/images/IMG_4557JPEG-crop.jpeg" alt="Gabinet FIZJOMAT" width="1200" height="550" loading="lazy" />
         </div>
         <div class="gallery-slide">
-          <img src="/images/IMG_4558JPEG.jpeg" alt="Gabinet FIZJOMAT" width="1200" height="1600" loading="lazy" />
+          <img src="/images/IMG_4558JPEG-crop.jpeg" alt="Gabinet FIZJOMAT" width="1200" height="550" loading="lazy" />
         </div>
         <div class="gallery-slide">
-          <img src="/images/IMG_4570JPEG.jpeg" alt="Gabinet FIZJOMAT" width="1200" height="1600" loading="lazy" />
+          <img src="/images/IMG_4570JPEG-crop.jpeg" alt="Gabinet FIZJOMAT" width="1200" height="550" loading="lazy" />
         </div>
       </div>
       <div class="gallery-dots" id="galleryDots">
@@ -145,8 +145,8 @@ const uslugiSorted = uslugi.sort((a, b) => a.data.order - b.data.order);
         <h2>Wyślij wiadomość</h2>
         <form action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" value="e5e5574e-7a1b-4cd1-88c9-e123d3cae509" />
-          <input type="hidden" name="subject" value="Nowa wiadomość z fizjomat.com" />
-          <input type="hidden" name="redirect" value="https://fizjomat.com/?sent=1" />
+          <input type="hidden" name="subject" value="Nowa wiadomość z fizjomat.com.pl" />
+          <input type="hidden" name="redirect" value={`${import.meta.env.SITE}/?sent=1`} />
           <div class="form-group">
             <label for="name">Imię i nazwisko</label>
             <input type="text" id="name" name="name" required autocomplete="name" />

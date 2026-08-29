@@ -10,13 +10,18 @@
         height="60"
       />
     </a>
-    <nav aria-label="Główna nawigacja">
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Otwórz menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="mainNav" aria-label="Główna nawigacja">
       <ul class="nav-list">
         <li><a href="/#o-nas">O nas</a></li>
         <li><a href="/#uslugi">Usługi</a></li>
         <li><a href="/#zespol">Zespół</a></li>
         <li><a href="/blog">Blog</a></li>
         <li><a href="/#kontakt">Kontakt</a></li>
+        <li><a href="/cennik.pdf" target="_blank" rel="noopener">Cennik</a></li>
+        <li><a href="/pierwsza-wizyta.pdf" target="_blank" rel="noopener">Pierwsza wizyta</a></li>
       </ul>
     </nav>
   </div>
@@ -41,7 +46,7 @@
   .nav-list {
     list-style: none;
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
   }
   .nav-list a {
@@ -50,7 +55,72 @@
     font-size: 0.95rem;
   }
   .nav-list a:hover { text-decoration: underline; }
-  @media (max-width: 640px) {
-    .nav-list { gap: 1rem; font-size: 0.85rem; }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+  }
+  .nav-toggle span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: var(--color-primary);
+    border-radius: 2px;
+    transition: transform 0.25s, opacity 0.25s;
+  }
+
+  @media (max-width: 768px) {
+    .nav-toggle { display: flex; }
+
+    #mainNav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--color-bg);
+      border-bottom: 1px solid var(--color-border);
+      padding: 1rem 1.5rem;
+    }
+    #mainNav.open { display: block; }
+
+    .nav-list {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .nav-list a { font-size: 1rem; }
+
+    /* X animation */
+    .nav-toggle[aria-expanded="true"] span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav-toggle[aria-expanded="true"] span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
   }
 </style>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('mainNav');
+  toggle?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+  // Close menu when a nav link is clicked
+  nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    toggle?.setAttribute('aria-expanded', 'false');
+  }));
+</script>
