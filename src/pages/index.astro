@@ -108,6 +108,9 @@ const uslugiSorted = uslugi.sort((a, b) => a.data.order - b.data.order);
   <section id="zespol">
     <div class="container">
       <h2>Nasz zespół</h2>
+      <div class="team-hero">
+        <img src="/images/team-bg.webp" alt="Zespół FIZJOMAT" width="396" height="417" loading="lazy" />
+      </div>
       <div class="team-grid">
         <div class="team-card">
           <div class="team-card-photo">
@@ -323,22 +326,18 @@ const uslugiSorted = uslugi.sort((a, b) => a.data.order - b.data.order);
   .card-link { font-weight: 600; font-size: 0.85rem; color: #89c4ff; }
 
   /* TEAM */
-  #zespol {
-    position: relative;
-    background-image: url('/images/team-bg.webp');
-    background-size: cover;
-    background-position: center top;
-    background-attachment: fixed;
+  .team-hero {
+    margin-bottom: 2rem;
+    border-radius: var(--radius);
+    overflow: hidden;
+    max-height: 420px;
   }
-  #zespol::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(18,38,65,0.78);
-    pointer-events: none;
+  .team-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
-  #zespol > .container { position: relative; z-index: 1; }
-  #zespol h2 { color: #fff; }
   .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

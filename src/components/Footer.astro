@@ -33,10 +33,14 @@
     </div>
     <div class="footer-social">
       <h3>Social media</h3>
-      <ul>
-        <li><a href="https://www.facebook.com/profile.php?id=61592140524615" target="_blank" rel="noopener">Facebook</a></li>
-        <li><a href="https://www.instagram.com/fizjomat.michal.klapuch/" target="_blank" rel="noopener">Instagram</a></li>
-      </ul>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=61592140524615" target="_blank" rel="noopener" aria-label="Facebook">
+          <img src="/images/facebook-1-svgrepo-com.svg" alt="Facebook" width="28" height="28" />
+        </a>
+        <a href="https://www.instagram.com/fizjomat.michal.klapuch/" target="_blank" rel="noopener" aria-label="Instagram">
+          <img src="/images/instagram-1-svgrepo-com.svg" alt="Instagram" width="28" height="28" />
+        </a>
+      </div>
     </div>
   </div>
   <div class="footer-bottom">
@@ -57,7 +61,7 @@
     padding-bottom: 2rem;
   }
   .footer-brand p { color: #c5d0de; font-size: 0.9rem; margin-top: 0.75rem; }
-  .footer-contact h3, .footer-nav h3 {
+  .footer-contact h3, .footer-nav h3, .footer-social h3 {
     color: #fff;
     font-size: 1rem;
     margin-bottom: 0.75rem;
@@ -67,6 +71,10 @@
   .footer-contact a:hover, .footer-nav a:hover { color: #fff; }
   .footer-nav ul { list-style: none; }
   .footer-nav li { margin-bottom: 0.4rem; }
+  .social-icons { display: flex; gap: 1rem; margin-top: 0.25rem; }
+  .social-icons a { display: flex; opacity: 0.8; transition: opacity 0.2s; }
+  .social-icons a:hover { opacity: 1; }
+  .social-icons img { filter: brightness(0) invert(1); }
   .footer-bottom {
     border-top: 1px solid rgba(255,255,255,0.15);
     text-align: center;
