@@ -1,11 +1,16 @@
 ---
 title: Rehabilitacja sportowa
 description: Powrót do pełnej sprawności po urazach sportowych i przeciążeniach.
-excerpt: Skuteczna rehabilitacja dla sportowców — od urazu do pełnego powrotu do aktywności.
+excerpt: Wsparcie dla osób aktywnych fizycznie oraz sportowców wracających do treningów po kontuzji. Łączę doświadczenie fizjoterapeuty, nauczyciela wychowania fizycznego oraz instruktora sportów z praktyczną znajomością sportu wytrzymałościowego i treningu.
 image: /images/service-rehabilitacja-sportowa.webp
 order: 2
 ---
 
-Specjalizujemy się w rehabilitacji sportowców amatorskich i zawodowych. Pomagamy w powrocie do aktywności po urazach mięśni, więzadeł i stawów, przeciążeniach treningowych oraz operacjach ortopedycznych.
+Wsparcie dla osób aktywnych fizycznie oraz sportowców wracających do treningów po kontuzji. Łączę doświadczenie fizjoterapeuty, nauczyciela wychowania fizycznego oraz instruktora sportów z praktyczną znajomością sportu wytrzymałościowego i treningu.
 
-Program rehabilitacji opieramy na funkcjonalnej diagnostyce ruchu i indywidualnym planie terapii dostosowanym do dyscypliny sportowej pacjenta.
+**Dla:**
+
+- biegaczy
+- triathlonistów
+- tenisistów
+- osób aktywnych fizycznie

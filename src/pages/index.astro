@@ -53,7 +53,7 @@ const uslugiSorted = uslugi.sort((a, b) => a.data.order - b.data.order);
   <section class="hero" id="hero">
     <div class="container hero-inner">
       <p class="hero-eyebrow">FIZJOMAT</p>
-      <h1>Odzyskaj sprawność</h1>
+      <h1>Odzyskaj Sprawność</h1>
       <p class="hero-tagline">W <strong>FIZJOMAT</strong> pomagamy odzyskać pełną sprawność i cieszyć się życiem bez bólu. Nasz doświadczony zespół fizjoterapeutów oferuje indywidualne podejście i skuteczne terapie, dopasowane do Twoich potrzeb. Rozpocznij drogę do zdrowia już dziś!</p>
       <div class="hero-ctas">
         <BookingButton
@@ -73,8 +73,11 @@ const uslugiSorted = uslugi.sort((a, b) => a.data.order - b.data.order);
   <section id="o-nas">
     <div class="container">
       <h2>Kim jesteśmy?</h2>
-      <p>FIZJOMAT to centrum profesjonalnej fizjoterapii i rehabilitacji ortopedycznej w Gliwicach. Specjalizujemy się w terapii bólu narządu ruchu, rehabilitacji sportowej i diagnostyce funkcjonalnej.</p>
-      <p>Naszym celem jest przywrócenie pełnej sprawności pacjentom i poprawa jakości ich życia. Każdą terapię opieramy na dokładnej diagnozie i indywidualnym planie leczenia.</p>
+      <p>Jesteśmy zespołem młodych oraz doświadczonych, fizjoterapeutów, którzy w oparciu o zebrane doświadczenie, ukończone studia oraz szkolenia specjalistyczne, potrzebę ciągłego rozwoju i ogromną satysfakcję z wykonywanej pracy, niosą pomoc swoim Pacjentom. To miejsce, które tworzą pasjonaci z dziedziny rehabilitacji – fizjoterapeuci oraz współpracujący z nimi lekarze i specjaliści.</p>
+      <h3>W czym się specjalizujemy?</h3>
+      <p>Specjalizujemy się w fizjoterapii i rehabilitacji ortopedycznej – kręgosłupa oraz stawów obwodowych. Zajmujemy się działaniami doraźnymi, a także szeroko zakrojoną profilaktyką. W FIZJOMAT opieramy się nie tylko na wyuczonych technikach, starając się łączyć nabyte umiejętności praktyczne z wiedzą wynikającą z doświadczenia całego naszego środowiska. Zajmujemy się także przygotowaniem motorycznym zawodników oraz szeroką pojętą prewencją urazów w sporcie zarówno na poziomie zawodowym jak i amatorskim.</p>
+      <h3>Jak możemy Ci pomóc?</h3>
+      <p>Jeśli jesteś Pacjentem ortopedycznym i chcesz pozbyć się nie tylko objawów, ale i przyczyn swoich dolegliwości, co więcej także zmienić swoje podejście do ruchu i codziennego trybu życia, to trafiłeś w dobre miejsce. Zaopiekujemy się Twoim zdrowiem!</p>
     </div>
   </section>
 
@@ -82,7 +85,7 @@ const uslugiSorted = uslugi.sort((a, b) => a.data.order - b.data.order);
   <section id="uslugi">
     <div class="container">
       <h2>Oferta</h2>
-      <p class="section-lead">Specjalizujemy się w sześciu obszarach fizjoterapii i rehabilitacji.</p>
+      <p class="section-lead"><span class="ebp-badge">Evidence-Based Practice</span></p>
       <ul class="services-grid">
         {uslugiSorted.map((usluga) => (
           <li class="service-card">
@@ -181,6 +184,7 @@ const uslugiSorted = uslugi.sort((a, b) => a.data.order - b.data.order);
     <div class="container kontakt-inner">
       <div class="kontakt-info">
         <h2>Skontaktuj się</h2>
+        <p>Potrzebujesz ulgi od bólu, wsparcia w powrocie do formy lub profesjonalnej porady fizjoterapeutycznej? W FIZJOMAT jesteśmy gotowi, by Ci pomóc! Skontaktuj się z nami już dziś – zadzwoń lub wypełnij formularz. Oferujemy indywidualne podejście i skuteczne terapie, byś mógł cieszyć się pełnią zdrowia i aktywności. Czekamy na Ciebie!</p>
         <address>
           <p><strong>Adres:</strong><br />ul. Sowińskiego 72<br />44-121 Gliwice</p>
           <p><strong>Telefon:</strong><br /><a href="tel:+48660681468">+48 660 681 468</a></p>
@@ -294,6 +298,18 @@ const uslugiSorted = uslugi.sort((a, b) => a.data.order - b.data.order);
 
   /* SERVICES */
   .section-lead { color: var(--color-text-muted); margin-bottom: 2rem; }
+  .ebp-badge {
+    display: inline-block;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    color: var(--color-accent);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.9rem;
+    border-radius: 999px;
+  }
   .services-grid {
     list-style: none;
     display: grid;

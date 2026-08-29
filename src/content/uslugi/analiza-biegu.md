@@ -1,11 +1,16 @@
 ---
 title: Analiza biegu
 description: Wideo-analiza techniki biegu i indywidualne wskazówki korekcyjne.
-excerpt: Znajdź przyczynę kontuzji i popraw technikę biegu dzięki profesjonalnej analizie.
+excerpt: Usługa skierowana do biegaczy chcących poprawić technikę biegu, ograniczyć ryzyko kontuzji i trenować bardziej efektywnie. Analiza pozwala ocenić wzorce ruchowe oraz wskazać obszary wymagające poprawy.
 image: /images/service-analiza-biegu.webp
 order: 5
 ---
 
-Analiza biegu to kompleksowa ocena techniki biegu przy użyciu nagrania wideo w zwolnionym tempie. Identyfikujemy nieprawidłowe wzorce ruchowe, które mogą prowadzić do przeciążeń i kontuzji, i opracowujemy plan korekcji.
+Usługa skierowana do biegaczy chcących poprawić technikę biegu, ograniczyć ryzyko kontuzji i trenować bardziej efektywnie. Analiza pozwala ocenić wzorce ruchowe oraz wskazać obszary wymagające poprawy.
 
-Usługa przeznaczona dla biegaczy amatorskich i zawodowych — zarówno jako profilaktyka, jak i diagnoza po urazie.
+**Pomaga w:**
+
+- profilaktyce urazów
+- powrocie do biegania po kontuzji
+- poprawie ekonomii biegu
+- przygotowaniu do zawodów

@@ -1,11 +1,17 @@
 ---
 title: Fizjoterapia ortopedyczna
 description: Diagnostyka i leczenie schorzeń układu ruchu — kręgosłupa, stawów i mięśni.
-excerpt: Kompleksowe leczenie dolegliwości bólowych kręgosłupa, stawów i tkanek miękkich.
+excerpt: Pomagamy osobom zmagającym się z bólem i ograniczeniami narządu ruchu. W terapii skupiamy się nie tylko na objawach, ale przede wszystkim na znalezieniu przyczyny problemu i przywróceniu pełnej sprawności.
 image: /images/service-fizjoterapia-ortopedyczna.webp
 order: 1
 ---
 
-Fizjoterapia ortopedyczna zajmuje się diagnostyką i leczeniem schorzeń narządu ruchu. Pracujemy z pacjentami z bólami kręgosłupa, stawów kolanowych, barkowych i biodrowych, a także z urazami tkanek miękkich.
+Pomagamy osobom zmagającym się z bólem i ograniczeniami narządu ruchu. W terapii skupiamy się nie tylko na objawach, ale przede wszystkim na znalezieniu przyczyny problemu i przywróceniu pełnej sprawności.
 
-Stosujemy indywidualnie dobrane metody terapeutyczne, w tym terapię manualną, techniki tkanek miękkich, ćwiczenia terapeutyczne i fizykoterapię.
+**Najczęstsze wskazania:**
+
+- ból kręgosłupa
+- ból barku, biodra i kolana
+- przeciążenia stawów i mięśni
+- ograniczenia ruchomości
+- dolegliwości po urazach

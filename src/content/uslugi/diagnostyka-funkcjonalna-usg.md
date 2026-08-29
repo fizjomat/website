@@ -1,9 +1,15 @@
 ---
 title: Diagnostyka funkcjonalna i USG
 description: Ocena wzorców ruchowych i diagnostyka ultrasonograficzna tkanek miękkich.
-excerpt: Precyzyjna diagnostyka ruchu i USG dla trafniejszej diagnozy i skuteczniejszej terapii.
+excerpt: Dokładna ocena narządu ruchu pozwala lepiej zrozumieć źródło problemu i zaplanować skuteczną terapię. W pracy wykorzystuję badanie funkcjonalne oraz diagnostykę USG tkanek miękkich i stawów.
 image: /images/service-diagnostyka-usg.webp
 order: 4
 ---
 
-Diagnostyka funkcjonalna pozwala na ocenę wzorców ruchowych i identyfikację dysfunkcji, które mogą być przyczyną bólu lub kontuzji. Badanie ultrasonograficzne (USG) umożliwia dokładną ocenę stanu tkanek miękkich — mięśni, ścięgien i więzadeł — bez ekspozycji na promieniowanie.
+Dokładna ocena narządu ruchu pozwala lepiej zrozumieć źródło problemu i zaplanować skuteczną terapię. W pracy wykorzystuję badanie funkcjonalne oraz diagnostykę USG tkanek miękkich i stawów.
+
+**Korzyści:**
+
+- szybsze określenie przyczyny dolegliwości
+- monitorowanie procesu leczenia
+- indywidualne dopasowanie terapii
