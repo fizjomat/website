@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import BookingButton from '../components/BookingButton.astro';
 ---
 <Base
   title="Cennik – FIZJOMAT Gliwice"
@@ -99,8 +100,15 @@ import Base from '../layouts/Base.astro';
       </div>
 
       <div class="cennik-cta">
-        <a href="/#kontakt" class="btn btn-primary">Umów wizytę</a>
-        <a href="/cennik.pdf" class="btn btn-outline" target="_blank" rel="noopener">Pobierz PDF</a>
+        <BookingButton
+          href="https://booksy.com/pl-pl/310393_fizjomat-michal-klapuch_fizjoterapia_12795_gliwice"
+          label="Umów wizytę – Michał"
+        />
+        <BookingButton
+          href="https://booksy.com/pl-pl/337615_szymon-maczko-fizjoterapia-i-trening_fizjoterapia_12795_gliwice"
+          label="Umów wizytę – Szymon"
+          variant="outline"
+        />
       </div>
     </div>
   </article>
