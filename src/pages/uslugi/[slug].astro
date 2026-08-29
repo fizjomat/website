@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import BookingButton from '../../components/BookingButton.astro';
 
 export async function getStaticPaths() {
   const uslugi = await getCollection('uslugi');
@@ -29,6 +30,17 @@ const { Content } = await render(entry);
           <h1>{entry.data.title}</h1>
           <div class="prose">
             <Content />
+          </div>
+          <div class="service-cta">
+            <BookingButton
+              href="https://booksy.com/pl-pl/310393_fizjomat-michal-klapuch_fizjoterapia_12795_gliwice"
+              label="Umów wizytę – Michał"
+            />
+            <BookingButton
+              href="https://booksy.com/pl-pl/337615_szymon-maczko-fizjoterapia-i-trening_fizjoterapia_12795_gliwice"
+              label="Umów wizytę – Szymon"
+              variant="outline"
+            />
           </div>
           <a href="/#uslugi" class="btn btn-outline back-link">← Wszystkie usługi</a>
         </div>
@@ -82,6 +94,7 @@ const { Content } = await render(entry);
   .prose li { margin-bottom: 0.35rem; }
   .prose strong { color: var(--color-primary); }
   .back-link { margin-top: 2rem; display: inline-block; }
+  .service-cta { display: flex; gap: 1rem; flex-wrap: wrap; margin: 2rem 0 0.5rem; }
 
   /* Photo column — sticky with parallax */
   .service-photo-wrap {
