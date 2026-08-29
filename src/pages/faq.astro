@@ -1,0 +1,172 @@
+---
+import Base from '../layouts/Base.astro';
+
+const faqs = [
+  {
+    q: 'Jak przygotować się do wizyty?',
+    a: 'W toku diagnostyki funkcjonalnej przydatne będą wyniki badań obrazowych (płyty wraz z opisami), wyniki badań laboratoryjnych oraz historia dotychczasowego leczenia (karty wpisowe ze szpitali, zaświadczenia o odbytej rehabilitacji).',
+  },
+  {
+    q: 'Jakie ubranie będzie potrzebne na wizytę?',
+    a: 'Proponujemy zabrać ze sobą niekrępujące ruchów ubranie sportowe. Na potrzeby badania fizjoterapeuta może poprosić pacjenta o rozebranie się do bielizny.',
+  },
+  {
+    q: 'Czy potrzebuję skierowania?',
+    a: 'Nie — na wizytę do fizjoterapeuty w FIZJOMAT można zgłosić się bez skierowania.',
+  },
+  {
+    q: 'Czy wizyty są refundowane przez NFZ?',
+    a: 'W FIZJOMAT świadczymy wyłącznie wizyty komercyjne. Nie współpracujemy z Narodowym Funduszem Zdrowia.',
+  },
+  {
+    q: 'Jaka jest cena wizyty?',
+    a: 'Ceny wizyt w FIZJOMAT wahają się od 140 zł do 190 zł, w zależności od rodzaju wizyty (indywidualna, ćwiczenia w grupie).',
+  },
+  {
+    q: 'Czy są dostępne pakiety kilku wizyt w niższej cenie?',
+    a: 'Tak — w przypadku długotrwałego leczenia proponujemy korzystne pakiety zabiegowe.',
+  },
+  {
+    q: 'Jak wygląda pierwsza wizyta?',
+    a: 'Pierwsza wizyta trwa około godziny. Fizjoterapeuta przeprowadza szczegółowy wywiad medyczny, w razie potrzeby analizuje badania obrazowe, wykonuje badanie funkcjonalne i nakreśla plan leczenia po postawieniu diagnozy. Jeśli czas pozwala, podejmujemy próbne działania terapeutyczne lub zadajemy kilka prostych ćwiczeń do domu.',
+  },
+  {
+    q: 'Czy wizyta będzie bolesna?',
+    a: 'Niektóre techniki mogą być bolesne — jest to jednak subiektywne odczucie pacjenta. Staramy się dostosować siłę do możliwości pacjenta i nie wprowadzać układu nerwowego w niepotrzebny stres związany z odczuciami podczas terapii.',
+  },
+  {
+    q: 'Jak często będą potrzebne wizyty?',
+    a: 'Plan terapii nakreśla terapeuta po zapoznaniu się z dokumentacją medyczną i zbadaniu pacjenta. Trudno z góry określić, jak długo będzie trwał proces leczenia — do każdego pacjenta podchodzimy indywidualnie.',
+  },
+  {
+    q: 'Czy istnieją przeciwwskazania do fizjoterapii?',
+    a: 'Tak — ze względu na złożony charakter dolegliwości i wpływ różnych chorób na pacjenta, ostateczną decyzję o zasadności podjęcia terapii podejmuje fizjoterapeuta.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
+---
+<Base
+  title="FAQ – Pierwsze pytania | FIZJOMAT Gliwice"
+  description="Najczęściej zadawane pytania przed wizytą u fizjoterapeuty w FIZJOMAT Gliwice. Skierowanie, ceny, pierwsza wizyta, NFZ, pakiety."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head" />
+
+  <article class="faq-page">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Nawigacja okruszkowa">
+        <a href="/">Strona główna</a>
+        <span aria-hidden="true">›</span>
+        <span>FAQ</span>
+      </nav>
+
+      <h1>Najczęściej zadawane pytania</h1>
+      <p class="faq-lead">Przed pierwszą wizytą u fizjoterapeuty pojawia się wiele wątpliwości. Tutaj znajdziesz odpowiedzi na najczęstsze pytania.</p>
+
+      <dl class="faq-list">
+        {faqs.map(({ q, a }) => (
+          <div class="faq-item">
+            <details>
+              <summary>
+                <dt>{q}</dt>
+              </summary>
+              <dd>{a}</dd>
+            </details>
+          </div>
+        ))}
+      </dl>
+
+      <div class="faq-cta">
+        <p>Masz inne pytanie? Skontaktuj się z nami.</p>
+        <a href="/#kontakt" class="btn btn-primary">Napisz do nas</a>
+        <a href="/pierwsza-wizyta.pdf" class="btn btn-outline" target="_blank" rel="noopener">Pobierz PDF</a>
+      </div>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .faq-page { padding: var(--section-padding); }
+
+  .breadcrumb {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .breadcrumb a { color: var(--color-text-muted); }
+  .breadcrumb a:hover { color: var(--color-primary); }
+
+  h1 { margin-bottom: 0.75rem; }
+  .faq-lead { color: var(--color-text-muted); max-width: 60ch; margin-bottom: 3rem; }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 780px;
+  }
+
+  .faq-item {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .faq-item details { background: var(--color-bg); }
+  .faq-item details[open] { background: var(--color-bg-alt); }
+
+  .faq-item summary {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 1.1rem 1.25rem;
+    user-select: none;
+    gap: 1rem;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: '+';
+    font-size: 1.3rem;
+    color: var(--color-accent);
+    font-weight: 300;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .faq-item details[open] summary::after { content: '−'; }
+
+  .faq-item dt {
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 1rem;
+  }
+
+  .faq-item dd {
+    padding: 0 1.25rem 1.1rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .faq-cta {
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .faq-cta p { margin: 0; color: var(--color-text-muted); }
+</style>
