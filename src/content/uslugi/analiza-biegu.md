@@ -2,6 +2,7 @@
 title: Analiza biegu
 description: Wideo-analiza techniki biegu i indywidualne wskazówki korekcyjne.
 excerpt: Znajdź przyczynę kontuzji i popraw technikę biegu dzięki profesjonalnej analizie.
+image: /images/service-analiza-biegu.webp
 order: 5
 ---
 

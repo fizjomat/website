@@ -2,6 +2,7 @@
 title: Fizjoterapia ortopedyczna
 description: Diagnostyka i leczenie schorzeń układu ruchu — kręgosłupa, stawów i mięśni.
 excerpt: Kompleksowe leczenie dolegliwości bólowych kręgosłupa, stawów i tkanek miękkich.
+image: /images/service-fizjoterapia-ortopedyczna.webp
 order: 1
 ---
 

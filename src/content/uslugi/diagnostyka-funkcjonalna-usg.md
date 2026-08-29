@@ -2,6 +2,7 @@
 title: Diagnostyka funkcjonalna i USG
 description: Ocena wzorców ruchowych i diagnostyka ultrasonograficzna tkanek miękkich.
 excerpt: Precyzyjna diagnostyka ruchu i USG dla trafniejszej diagnozy i skuteczniejszej terapii.
+image: /images/service-diagnostyka-usg.webp
 order: 4
 ---
 

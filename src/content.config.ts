@@ -7,6 +7,7 @@ const uslugi = defineCollection({
     title: z.string(),
     description: z.string(),
     excerpt: z.string(),
+    image: z.string().optional(),
     order: z.number(),
   }),
 });

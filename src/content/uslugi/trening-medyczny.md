@@ -2,6 +2,7 @@
 title: Trening medyczny
 description: Indywidualny trening terapeutyczny wspierający leczenie i profilaktykę.
 excerpt: Ćwiczenia terapeutyczne dopasowane do Twoich potrzeb zdrowotnych i celów.
+image: /images/service-trening-medyczny.webp
 order: 3
 ---
 

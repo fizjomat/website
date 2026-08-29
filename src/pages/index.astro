@@ -86,9 +86,18 @@ const uslugiSorted = uslugi.sort((a, b) => a.data.order - b.data.order);
       <ul class="services-grid">
         {uslugiSorted.map((usluga) => (
           <li class="service-card">
-            <h3><a href={`/uslugi/${usluga.id}`}>{usluga.data.title}</a></h3>
-            <p>{usluga.data.excerpt}</p>
-            <a href={`/uslugi/${usluga.id}`} class="card-link">Dowiedz się więcej →</a>
+            <a href={`/uslugi/${usluga.id}`} class="service-card-link">
+              {usluga.data.image && (
+                <div class="service-card-img">
+                  <img src={usluga.data.image} alt={usluga.data.title} width="400" height="350" loading="lazy" />
+                </div>
+              )}
+              <div class="service-card-body">
+                <h3>{usluga.data.title}</h3>
+                <p>{usluga.data.excerpt}</p>
+                <span class="card-link">Dowiedz się więcej →</span>
+              </div>
+            </a>
           </li>
         ))}
       </ul>
@@ -101,21 +110,46 @@ const uslugiSorted = uslugi.sort((a, b) => a.data.order - b.data.order);
       <h2>Nasz zespół</h2>
       <div class="team-grid">
         <div class="team-card">
-          <h3>Michał Klapuch</h3>
-          <p>Magister fizjoterapii i wychowania fizycznego AWF Katowice. Specjalizuje się w terapii bólu narządu ruchu, rehabilitacji sportowej, kinezyterapii i terapii manualnej. Stosuje diagnostykę funkcjonalną i USG. Aktywny triathlonista.</p>
-          <BookingButton
-            href="https://booksy.com/pl-pl/310393_fizjomat-michal-klapuch_fizjoterapia_12795_gliwice"
-            label="Umów wizytę"
-          />
+          <div class="team-card-photo">
+            <img src="/images/team-michal.webp" alt="Michał Klapuch" width="386" height="435" loading="lazy" />
+          </div>
+          <div class="team-card-body">
+            <h3>Michał Klapuch</h3>
+            <p>Magister fizjoterapii i wychowania fizycznego AWF Katowice. Specjalizuje się w terapii bólu narządu ruchu, rehabilitacji sportowej, kinezyterapii i terapii manualnej. Stosuje diagnostykę funkcjonalną i USG. Aktywny triathlonista.</p>
+            <BookingButton
+              href="https://booksy.com/pl-pl/310393_fizjomat-michal-klapuch_fizjoterapia_12795_gliwice"
+              label="Umów wizytę"
+            />
+          </div>
         </div>
         <div class="team-card">
-          <h3>Szymon Mączko</h3>
-          <p>Absolwent fizjoterapii AWF Katowice. Pracuje z pacjentami z dysfunkcjami narządu ruchu i osobami chcącymi bezpiecznie uprawiać aktywność fizyczną. Stale poszerza wiedzę z zakresu diagnostyki funkcjonalnej i rehabilitacji ortopedycznej.</p>
-          <BookingButton
-            href="https://booksy.com/pl-pl/337615_szymon-maczko-fizjoterapia-i-trening_fizjoterapia_12795_gliwice"
-            label="Umów wizytę"
-          />
+          <div class="team-card-photo">
+            <img src="/images/team-szymon.webp" alt="Szymon Mączko" width="396" height="435" loading="lazy" />
+          </div>
+          <div class="team-card-body">
+            <h3>Szymon Mączko</h3>
+            <p>Absolwent fizjoterapii AWF Katowice. Pracuje z pacjentami z dysfunkcjami narządu ruchu i osobami chcącymi bezpiecznie uprawiać aktywność fizyczną. Stale poszerza wiedzę z zakresu diagnostyki funkcjonalnej i rehabilitacji ortopedycznej.</p>
+            <BookingButton
+              href="https://booksy.com/pl-pl/337615_szymon-maczko-fizjoterapia-i-trening_fizjoterapia_12795_gliwice"
+              label="Umów wizytę"
+            />
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZDJĘCIA -->
+  <section id="zdjecia" class="photos-section">
+    <div class="photos-grid">
+      <div class="photo-item">
+        <img src="/images/bottom-1.webp" alt="Gabinet FIZJOMAT" width="400" height="300" loading="lazy" />
+      </div>
+      <div class="photo-item">
+        <img src="/images/bottom-2.webp" alt="Gabinet FIZJOMAT" width="400" height="300" loading="lazy" />
+      </div>
+      <div class="photo-item">
+        <img src="/images/bottom-3.webp" alt="Gabinet FIZJOMAT" width="400" height="300" loading="lazy" />
       </div>
     </div>
   </section>
@@ -237,27 +271,7 @@ const uslugiSorted = uslugi.sort((a, b) => a.data.order - b.data.order);
   .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 0.5rem; }
 
   /* SERVICES */
-  #uslugi {
-    position: relative;
-    background-image: url('/images/foto1.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    padding: var(--section-padding);
-  }
-  #uslugi::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(18, 38, 65, 0.72);
-    pointer-events: none;
-  }
-  #uslugi > .container {
-    position: relative;
-    z-index: 1;
-  }
-  #uslugi h2 { color: #fff; }
-  .section-lead { color: rgba(255,255,255,0.8); margin-bottom: 2rem; }
+  .section-lead { color: var(--color-text-muted); margin-bottom: 2rem; }
   .services-grid {
     list-style: none;
     display: grid;
@@ -265,33 +279,120 @@ const uslugiSorted = uslugi.sort((a, b) => a.data.order - b.data.order);
     gap: 1.5rem;
   }
   .service-card {
-    background: var(--color-bg);
-    border: 1px solid var(--color-border);
+    overflow: hidden;
     border-radius: var(--radius);
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    position: relative;
+    background: var(--color-primary);
+    height: 320px;
+    border: none;
   }
-  .service-card h3 a { color: var(--color-primary); }
-  .service-card h3 a:hover { text-decoration: underline; }
-  .service-card p { color: var(--color-text-muted); font-size: 0.95rem; flex: 1; }
-  .card-link { font-weight: 600; font-size: 0.9rem; color: var(--color-accent); }
+  .service-card-link {
+    display: block;
+    height: 100%;
+    position: relative;
+    text-decoration: none;
+  }
+  .service-card-img {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+  .service-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .service-card:hover .service-card-img img { transform: scale(1.08); }
+  .service-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(18,38,65,0.9) 30%, rgba(18,38,65,0.2) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .service-card-body {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 1.5rem;
+    z-index: 2;
+  }
+  .service-card-body h3 { color: #fff; margin-bottom: 0.4rem; }
+  .service-card-body p { color: rgba(255,255,255,0.8); font-size: 0.88rem; margin-bottom: 0.5rem; }
+  .card-link { font-weight: 600; font-size: 0.85rem; color: #89c4ff; }
 
   /* TEAM */
+  #zespol {
+    position: relative;
+    background-image: url('/images/team-bg.webp');
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+  }
+  #zespol::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(18,38,65,0.78);
+    pointer-events: none;
+  }
+  #zespol > .container { position: relative; z-index: 1; }
+  #zespol h2 { color: #fff; }
   .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
   }
   .team-card {
-    background: var(--color-bg);
-    border: 1px solid var(--color-border);
+    background: #fff;
     border-radius: var(--radius);
-    padding: 2rem;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+  }
+  .team-card-photo {
+    width: 100%;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+  }
+  .team-card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .team-card:hover .team-card-photo img { transform: scale(1.04); }
+  .team-card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 1;
+  }
+
+  /* BOTTOM PHOTOS */
+  .photos-section { padding: 0; }
+  .photos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .photo-item {
+    overflow: hidden;
+    aspect-ratio: 4/3;
+  }
+  .photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.45s ease;
+  }
+  .photo-item:hover img { transform: scale(1.08); }
+  @media (max-width: 640px) {
+    .photos-grid { grid-template-columns: 1fr; }
+    .photo-item { aspect-ratio: 16/9; }
   }
 
   /* KONTAKT */
