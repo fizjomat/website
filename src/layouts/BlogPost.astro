@@ -11,8 +11,31 @@ interface Props {
 
 const { title, description, date, author, tags } = Astro.props;
 const formattedDate = date.toLocaleDateString('pl-PL', { year: 'numeric', month: 'long', day: 'numeric' });
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fizjomat.com.pl';
+const blogPostingSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description,
+  "datePublished": date.toISOString(),
+  "url": canonicalURL.toString(),
+  "author": {
+    "@type": "Person",
+    "name": author
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "FIZJOMAT",
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${siteUrl}/images/Fizjomat-logo-2025_RGB_poziom-kolor.webp`
+    }
+  }
+};
 ---
 <Base title={`${title} – Blog FIZJOMAT`} description={description} ogType="article">
+  <script type="application/ld+json" set:html={JSON.stringify(blogPostingSchema)} slot="head" />
   <article class="blog-post">
     <div class="container">
       <nav class="breadcrumb" aria-label="Nawigacja okruszkowa">

@@ -1,11 +1,15 @@
 ---
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://fizjomat.com.pl';
 ---
 <script type="application/ld+json" set:html={JSON.stringify({
   "@context": "https://schema.org",
-  "@type": "MedicalBusiness",
+  "@type": ["MedicalBusiness", "LocalBusiness"],
   "name": "FIZJOMAT",
   "medicalSpecialty": "Physiotherapy",
   "description": "Centrum profesjonalnej fizjoterapii i rehabilitacji ortopedycznej w Gliwicach.",
+  "url": siteUrl,
+  "logo": `${siteUrl}/images/Fizjomat-logo-2025_RGB_poziom-kolor.webp`,
+  "image": `${siteUrl}/images/Fizjomat-logo-2025_RGB_poziom-kolor.webp`,
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "ul. Sowińskiego 72",
@@ -15,5 +19,14 @@
   },
   "telephone": "+48660681468",
   "email": "fizjomat@gmail.com",
-  "url": "https://fizjomat.com"
+  "sameAs": [
+    "https://www.facebook.com/profile.php?id=61592140524615",
+    "https://www.instagram.com/fizjomat.michal.klapuch/",
+    "https://booksy.com/pl-pl/310393_fizjomat-michal-klapuch_fizjoterapia_12795_gliwice"
+  ],
+  "hasMap": "https://maps.google.com/?q=ul.+Sowi%C5%84skiego+72+Gliwice",
+  "areaServed": {
+    "@type": "City",
+    "name": "Gliwice"
+  }
 })} />
