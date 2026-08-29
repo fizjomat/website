@@ -2,23 +2,20 @@
 ---
 <footer class="site-footer">
   <div class="container footer-inner">
+
     <div class="footer-brand">
-      <img
-        src="/images/Fizjomat-logo-2025_RGB_poziom-kolor.webp"
-        alt="FIZJOMAT"
-        width="160"
-        height="48"
-      />
-      <p>Centrum profesjonalnej fizjoterapii i rehabilitacji ortopedycznej.</p>
+      <a href="/" aria-label="FIZJOMAT – strona główna">
+        <img
+          src="/images/logo-white.webp"
+          alt="FIZJOMAT"
+          width="120"
+          height="100"
+          class="footer-logo"
+        />
+      </a>
+      <p>Centrum profesjonalnej fizjoterapii<br />i rehabilitacji ortopedycznej w Gliwicach.</p>
     </div>
-    <div class="footer-contact">
-      <h3>Kontakt</h3>
-      <address>
-        <p>ul. Sowińskiego 72<br />44-121 Gliwice</p>
-        <p><a href="tel:+48660681468">+48 660 681 468</a></p>
-        <p><a href="mailto:fizjomat@gmail.com">fizjomat@gmail.com</a></p>
-      </address>
-    </div>
+
     <div class="footer-nav">
       <h3>Menu</h3>
       <ul>
@@ -27,12 +24,18 @@
         <li><a href="/#zespol">Zespół</a></li>
         <li><a href="/blog">Blog</a></li>
         <li><a href="/#kontakt">Kontakt</a></li>
+      </ul>
+      <h3 class="footer-nav-sub">Dokumenty</h3>
+      <ul>
         <li><a href="/cennik.pdf" target="_blank" rel="noopener">Cennik</a></li>
         <li><a href="/pierwsza-wizyta.pdf" target="_blank" rel="noopener">Pierwsza wizyta</a></li>
       </ul>
     </div>
-    <div class="footer-social">
-      <h3>Social media</h3>
+
+    <div class="footer-contact">
+      <h3>Kontakt</h3>
+      <a href="tel:+48660681468">+48 660 681 468</a>
+      <a href="mailto:fizjomat@gmail.com">fizjomat@gmail.com</a>
       <div class="social-icons">
         <a href="https://www.facebook.com/profile.php?id=61592140524615" target="_blank" rel="noopener" aria-label="Facebook">
           <img src="/images/facebook-1-svgrepo-com.svg" alt="Facebook" width="28" height="28" />
@@ -42,6 +45,7 @@
         </a>
       </div>
     </div>
+
   </div>
   <div class="footer-bottom">
     <p>&copy; {new Date().getFullYear()} FIZJOMAT. Wszelkie prawa zastrzeżone.</p>
@@ -51,34 +55,57 @@
 <style>
   .site-footer {
     background: var(--color-primary);
-    color: #e8edf4;
+    color: #c5d0de;
     padding: 3rem 0 0;
   }
   .footer-inner {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    padding-bottom: 2rem;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 2.5rem;
+    align-items: start;
   }
-  .footer-brand p { color: #c5d0de; font-size: 0.9rem; margin-top: 0.75rem; }
-  .footer-contact h3, .footer-nav h3, .footer-social h3 {
+  @media (max-width: 768px) {
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    .footer-brand { grid-column: 1 / -1; }
+  }
+  @media (max-width: 480px) {
+    .footer-inner { grid-template-columns: 1fr; }
+  }
+
+  /* Brand */
+  .footer-logo { display: block; }
+  .footer-brand p { color: #8a9bb0; font-size: 0.88rem; margin-top: 0.75rem; line-height: 1.6; }
+
+  /* Nav */
+  .footer-nav h3, .footer-contact h3 {
     color: #fff;
-    font-size: 1rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     margin-bottom: 0.75rem;
   }
-  .footer-contact address { font-style: normal; }
-  .footer-contact a, .footer-nav a { color: #c5d0de; }
-  .footer-contact a:hover, .footer-nav a:hover { color: #fff; }
-  .footer-nav ul { list-style: none; }
+  .footer-nav-sub { margin-top: 1.25rem; }
+  .footer-nav ul { list-style: none; margin-bottom: 0; }
   .footer-nav li { margin-bottom: 0.4rem; }
-  .social-icons { display: flex; gap: 1rem; margin-top: 0.25rem; }
+  .footer-nav a { color: #c5d0de; font-size: 0.9rem; }
+  .footer-nav a:hover { color: #fff; text-decoration: none; }
+
+  /* Contact */
+  .footer-contact { display: flex; flex-direction: column; gap: 0.75rem; }
+  .footer-contact a { color: #c5d0de; font-size: 0.9rem; }
+  .footer-contact a:hover { color: #fff; text-decoration: none; }
+  .social-icons { display: flex; gap: 0.75rem; margin-top: 0.75rem; }
   .social-icons a { display: flex; opacity: 0.9; transition: opacity 0.2s; }
   .social-icons a:hover { opacity: 1; }
+
+  /* Bottom */
   .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.15);
+    border-top: 1px solid rgba(255,255,255,0.1);
     text-align: center;
     padding: 1rem;
-    font-size: 0.85rem;
-    color: #8a9bb0;
+    font-size: 0.82rem;
+    color: #5a6a7e;
   }
 </style>
