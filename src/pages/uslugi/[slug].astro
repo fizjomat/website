@@ -24,6 +24,9 @@ const { Content } = await render(entry);
         <span>{entry.data.title}</span>
       </nav>
       <h1>{entry.data.title}</h1>
+      {entry.data.image && (
+        <img class="service-hero-img" src={entry.data.image} alt={entry.data.title} width="400" height="350" loading="eager" />
+      )}
       <div class="prose">
         <Content />
       </div>
@@ -39,5 +42,13 @@ const { Content } = await render(entry);
   .breadcrumb a:hover { color: var(--color-primary); }
   .prose { max-width: 70ch; margin: 1.5rem 0 2rem; }
   .prose p { margin-bottom: 1rem; }
+  .service-hero-img {
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+    border-radius: var(--radius);
+    margin: 1.5rem 0;
+    display: block;
+  }
   .back-link { margin-top: 1rem; }
 </style>
