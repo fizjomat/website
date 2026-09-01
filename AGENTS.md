@@ -1,24 +1,19 @@
 ## Project Overview
 
-This is the new website for **FIZJOMAT** — a physiotherapy clinic in Gliwice, Poland (ul. Sowińskiego 72).
+This is the website for **FIZJOMAT** — a physiotherapy clinic in Gliwice, Poland (ul. Sowińskiego 72).
 
-**Goal:** Replace the old WebWave site at `fizjomat.com.pl` with this Astro static site. The migration is in progress — the new site is not yet live on the production domain.
+**Status:** Migration from WebWave to Astro is complete. The new site is live on the production domain.
 
 ### Current deployment
 - GitHub repo: `github.com/fizjomat/website`
 - Hosting: Cloudflare Pages — auto-deploys on every push to `main`
-- Current staging URL: `fizjomat.pages.dev` or `fizjomat.com`
-- Production domain (not yet switched): `fizjomat.com.pl`
-
-### Switching to production
-When ready to go live on `fizjomat.com.pl`:
-1. In Cloudflare Dashboard → Pages → Custom Domains → add `fizjomat.com.pl`
-2. Remove the `SITE_URL` env var in Cloudflare Pages (or set it to `https://fizjomat.com.pl`)
-3. Push any change to `main` to trigger a fresh build
+- Production URL: `https://fizjomat.com.pl` (and `www.fizjomat.com.pl`)
+- Secondary URL: `fizjomat.com`
+- DNS: `www.fizjomat.com.pl` CNAME → `fizjomat.pages.dev`
 
 ### Domain configuration
 The canonical site URL is controlled by the `SITE_URL` environment variable in Cloudflare Pages.
-Default (when unset): `https://fizjomat.com.pl`. Override with the staging URL during development.
+Default (when unset): `https://fizjomat.com.pl`. Do not set `SITE_URL` in production.
 
 ### What's on the site
 - Single-page layout: Hero, Gallery (7 photos), O nas, Usługi (6 services), Zespół (2 therapists), Kontakt
@@ -36,9 +31,6 @@ Uses [Web3Forms](https://web3forms.com). Access key in `src/pages/index.astro` i
 ### Social media
 - Facebook: `https://www.facebook.com/profile.php?id=61592140524615`
 - Instagram: `https://www.instagram.com/fizjomat.michal.klapuch/`
-
-### Old site reference
-The previous site was built with WebWave and is still live at `fizjomat.com.pl`. It is a single-page site with no subpages, no blog, and no service detail pages. The new Astro site is a superset of its content.
 
 ---
 
